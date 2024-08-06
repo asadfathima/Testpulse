@@ -1,0 +1,68 @@
+<!-- <div *ngIf="issues && issues.length; else noIssuesTemplate">
+  <h2>Issues Details</h2>
+  <ul>
+    <li *ngFor="let issue of issues">
+      <div><strong>Component:</strong> {{ issue.component }}</div>
+      <div><strong>Severity:</strong> {{ issue.severity }}</div>
+      <div><strong>Issue Key:</strong> {{ issue.issue_key }}</div>
+      <div><strong>Message:</strong> {{ issue.message }}</div>
+    </li>
+  </ul>
+</div>
+<ng-template #noIssuesTemplate>
+  <p>No issues found for the selected timestamp.</p>
+</ng-template> -->
+
+
+<div *ngIf="issues && issues.length; else noIssuesTemplate">
+  <h2>Issues Details</h2>
+  <mat-accordion>  <!--multi="true"-->
+    <mat-expansion-panel *ngFor="let issue of issues">
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          Issue {{ issue.issue_key }} <!-- - Severity: {{ issue.severity }} -->
+        </mat-panel-title>
+        <mat-panel-description>
+          Click to view more details
+        </mat-panel-description>
+      </mat-expansion-panel-header>
+      
+      <mat-card>
+        <mat-card-header>
+          <mat-card-title>{{ issue.component.split(':').pop() }}</mat-card-title>
+          <!-- <mat-card-subtitle>{{ issue.message }}</mat-card-subtitle> -->
+        </mat-card-header>
+        
+        <mat-card-content>
+          <p><strong>Component:</strong> {{ issue.component }}</p>
+          <p><strong>Severity:</strong> {{ issue.severity }}</p>
+          <p><strong>Status:</strong> {{ issue.status }}</p>
+          <p><strong>Type:</strong> {{ issue.type }}</p>
+          <p><strong>Id:</strong> {{ issue.id }}</p>
+          <p><strong>Line:</strong> {{ issue.line }}</p>
+        </mat-card-content>
+        
+        <mat-card-actions align="end">
+          <button mat-button style="color: rgb(76, 0, 255);"(click)="onAISuggestionClick(issue.issue_key, issue.id)">AI Suggestion</button>
+        </mat-card-actions>
+
+        <!-- Loading Indicator -->
+        <div class="loading-container" *ngIf="isLoading">
+          <div>Analyzing...</div>
+        </div>
+    
+        <!-- Display AI response text below here if details are loaded for this issue -->
+        <mat-card *ngIf="selectedIssueResponse && activeIssueKey === issue.issue_key">
+          <mat-card-content>
+            {{ selectedIssueResponse }}
+          </mat-card-content>
+        </mat-card>
+
+      </mat-card>
+    </mat-expansion-panel>
+  </mat-accordion>
+</div>
+
+<ng-template #noIssuesTemplate>
+  <mat-card>No issues found for the selected timestamp.</mat-card>
+</ng-template>

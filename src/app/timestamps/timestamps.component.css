@@ -1,0 +1,59 @@
+mat-card {
+    margin: 20px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  }
+
+mat-card-header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    padding: 10px 0; 
+}
+
+mat-card-title {
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    text-align: center;
+    font-size: 40px; /* Adjust font size as needed */
+    color: #333; /* Adjust text color as needed */
+}
+
+h2 {
+    font-size: 20px;  /* Sets the size of the font */
+    color: #080808;  /* Sets the color of the text */
+    margin-top: 10px;  /* Adds space above the heading */
+    margin-bottom: 10px;  /* Adds space below the heading */
+    margin-left: 15px;
+    text-decoration: underline;
+}
+
+h3 {
+    font-size: 20px;  /* Sets the size of the font */
+    color: #080808;  /* Sets the color of the text */
+    margin-top: 10px;  /* Adds space above the heading */
+    margin-bottom: 20px;  /* Adds space below the heading */
+    margin-left: 15px;
+}
+
+  mat-list-item {
+    cursor: pointer;
+  } 
+  
+  mat-icon-button {
+    float: right;
+  }
+
+    mat-selection-list {
+    max-height: 300px; 
+    overflow-y: auto; 
+    width: 100%; 
+   }
+  
+    mat-list-option[selected] {
+    background-color: #585555; 
+   } 
+   
+
+
+
+
