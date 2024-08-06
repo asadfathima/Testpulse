@@ -1,0 +1,27 @@
+mat-card {
+    margin-bottom: 10px; /* Spacing between cards */
+  }
+  
+  mat-expansion-panel-header {
+    color: darkslategray; /* Styling the header for better visibility */
+  }
+
+  h2{
+    font-size: 20px;
+    margin-left: 25px;
+  }
+
+  .custom-mat-card {
+    width: 100%;     /* Makes the card take the full width of its container */
+    max-width: 800px; /* Limits the maximum width for better readability */
+    margin: 20px auto; /* Centers the card horizontally with a margin around it */
+    padding: 20px; /* Optional: adds space inside the card */
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* Optional: adds shadow for better visual effect */
+  }
+
+  .loading-container {
+    color: #5f05f9;
+    display: flex;
+    justify-content: center; /* Center horizontally */
+    align-items: center;     /* Center vertically */
+  }
